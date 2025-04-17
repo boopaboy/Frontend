@@ -49,7 +49,7 @@ const SignIn = () => {
         <div className="signup-card">
           <div className="signup-content">
             <div className="signup-header">
-              <h1>Login</h1>
+              <h1>LOGIN</h1>
             </div>
             
             <form onSubmit={handleSubmit}>
