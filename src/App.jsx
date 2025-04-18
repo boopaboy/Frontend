@@ -6,7 +6,6 @@ import { BrowserRouter, useRoutes } from "react-router-dom"
 import routesConfig from "./routing/RoutesConfig"
 import Providers from "./Providers"
 
-// Define the App component inside the file
 function App() {
   const routing = useRoutes(routesConfig)
 
@@ -17,7 +16,6 @@ function App() {
   )
 }
 
-// Render everything to the DOM
 const root = createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>

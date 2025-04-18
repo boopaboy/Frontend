@@ -20,7 +20,6 @@ const ClientModal = ({ isOpen, onClose, onSubmit, initialData }) => {
   const fileInputRef = useRef(null);
   const auth = useAuth();
 
-  // Fetch statuses on component mount
   useEffect(() => {
     const fetchStatuses = async () => {
       try {
@@ -36,22 +35,12 @@ const ClientModal = ({ isOpen, onClose, onSubmit, initialData }) => {
           const data = await response.json();
           setStatuses(data);
         } else {
-          console.error("Failed to fetch statuses");
-          // Default statuses if API fails
-          setStatuses([
-            { id: 1, name: "Active" },
-            { id: 2, name: "Inactive" },
-            { id: 3, name: "Pending" }
-          ]);
+          console.log("status error");
+      
         }
       } catch (error) {
-        console.error("Error fetching statuses:", error);
-        // Default statuses if API fails
-        setStatuses([
-          { id: 1, name: "Active" },
-          { id: 2, name: "Inactive" },
-          { id: 3, name: "Pending" }
-        ]);
+        console.log("status:", error);
+
       }
     };
 
@@ -61,7 +50,6 @@ const ClientModal = ({ isOpen, onClose, onSubmit, initialData }) => {
   useEffect(() => {
     if (isOpen) {
       if (initialData && initialData.id) {
-        // Edit mode
         setIsEditMode(true);
         setClientId(initialData.id);
         setClientName(initialData.clientName || '');
@@ -77,7 +65,6 @@ const ClientModal = ({ isOpen, onClose, onSubmit, initialData }) => {
           setCurrentImage('');
         }
       } else {
-        // Create mode
         resetForm();
         setIsEditMode(false);
         setClientId(null);
@@ -124,7 +111,6 @@ const ClientModal = ({ isOpen, onClose, onSubmit, initialData }) => {
     
     const formData = new FormData();
     
-    // Add ID if in edit mode
     if (isEditMode && clientId) {
       formData.append('Id', clientId);
     }

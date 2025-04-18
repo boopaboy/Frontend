@@ -25,11 +25,9 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
       if (data.token) {
         try {
-          // Added try/catch for JWT decoding during signup
           const decoded = jwtDecode(data.token);
           sessionStorage.setItem("accessToken", data.token);
           
-          // Fix role handling here
           const roleValue = Array.isArray(decoded.role) ? 
             (decoded.role.includes("admin") ? "admin" : "user") : 
             decoded.role || "user";
@@ -48,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   const signIn = async (email, password) => {
-    try { // Added try/catch
+    try { 
       const response = await fetch(signInEndpoint, {
         method: "POST",
         headers: {
@@ -65,7 +63,6 @@ export const AuthProvider = ({ children }) => {
           try {
             const decoded = jwtDecode(data.token);
             
-            // Fix role handling here
             const roleValue = Array.isArray(decoded.role) ? 
               (decoded.role.includes("admin") ? "admin" : "user") : 
               decoded.role || "user";
@@ -129,7 +126,6 @@ export const AuthProvider = ({ children }) => {
         return;
       }
       
-      // Fix role handling here - properly check if admin exists in the roles array
       const roleValue = Array.isArray(decodedToken.role) ? 
         (decodedToken.role.includes("admin") ? "admin" : "user") : 
         decodedToken.role || "user";

@@ -15,7 +15,6 @@ const Clients = () => {
   const [selectedClients, setSelectedClients] = useState({});
   const auth = useAuth();
   
-  // Checkbox functions kept for decoration only
   const handleSelectAll = () => {
     const newSelectAll = !selectAll;
     setSelectAll(newSelectAll);

@@ -41,7 +41,6 @@ const MemberModal = ({ isOpen, onClose, onSubmit, initialData }) => {
           setCurrentImage('');
         }
       } else {
-        // Create mode
         resetForm();
         setIsEditMode(false);
         setMemberId(null);
