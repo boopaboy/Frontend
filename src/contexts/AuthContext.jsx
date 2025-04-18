@@ -8,7 +8,7 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const signUpEndpoint = "https://alpha123123-dmceh2cehfdagyac.swedencentral-01.azurewebsites.net/api/Users/signup"
   const signInEndpoint = "https://alpha123123-dmceh2cehfdagyac.swedencentral-01.azurewebsites.net/api/Users/signin"
-  const defaultValues = { accessToken: null, role: "user", isAuthenticated: false, loading: true } 
+  const defaultValues = { accessToken: null, role: ["user"], isAuthenticated: false, loading: true } 
   const [auth, setAuth] = useState(defaultValues)
 
   const SignUp = async (form) => {
@@ -28,9 +28,15 @@ export const AuthProvider = ({ children }) => {
           // Added try/catch for JWT decoding during signup
           const decoded = jwtDecode(data.token);
           sessionStorage.setItem("accessToken", data.token);
+          
+          // Fix role handling here
+          const roleValue = Array.isArray(decoded.role) ? 
+            (decoded.role.includes("admin") ? "admin" : "user") : 
+            decoded.role || "user";
+            
           setAuth({ 
             accessToken: data.token, 
-            role: decoded.role || "user", // Use role from token or default to user
+            role: roleValue,
             isAuthenticated: true, 
             loading: false 
           });
@@ -58,12 +64,16 @@ export const AuthProvider = ({ children }) => {
         if (data.succeeded === true && data.token) {
           try {
             const decoded = jwtDecode(data.token);
-            const role = decoded.role || "user"; 
+            
+            // Fix role handling here
+            const roleValue = Array.isArray(decoded.role) ? 
+              (decoded.role.includes("admin") ? "admin" : "user") : 
+              decoded.role || "user";
             
             sessionStorage.setItem("accessToken", data.token);
             setAuth({ 
               accessToken: data.token, 
-              role: role, 
+              role: roleValue, 
               isAuthenticated: true, 
               loading: false 
             });
@@ -95,17 +105,19 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const accessToken = sessionStorage.getItem("accessToken");
-    
     if (!accessToken) {
-      // Set loading to false if no token exists
-      setAuth(prev => ({ ...prev, loading: false }));
+      
+      setAuth({
+        accessToken: null,
+        role: "user",
+        isAuthenticated: false,
+        loading: false
+      });
       return;
     }
     
     try {
       const decodedToken = jwtDecode(accessToken);
-      
-      
       if (decodedToken.exp * 1000 < Date.now()) {
         sessionStorage.removeItem("accessToken");
         setAuth({ 
@@ -117,9 +129,14 @@ export const AuthProvider = ({ children }) => {
         return;
       }
       
+      // Fix role handling here - properly check if admin exists in the roles array
+      const roleValue = Array.isArray(decodedToken.role) ? 
+        (decodedToken.role.includes("admin") ? "admin" : "user") : 
+        decodedToken.role || "user";
+      
       setAuth({ 
         accessToken, 
-        role: decodedToken.role || "user",
+        role: roleValue,
         isAuthenticated: true, 
         loading: false 
       });
@@ -133,6 +150,7 @@ export const AuthProvider = ({ children }) => {
         loading: false 
       });
     }
+
   }, []);
 
   const hasRole = (roleToCheck) => {

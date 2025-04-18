@@ -74,6 +74,7 @@ const Projects = () => {
     setSortOrder(e.target.value);
     try {
       setLoading(true);
+      console.log(import.meta.env.VITE_ADMIN_API_KEY);
       const response = await fetch(`https://alpha123123-dmceh2cehfdagyac.swedencentral-01.azurewebsites.net/api/Projects/GetAllWithExpressions?sortOrder=${sortOrder}`,
         {
           method: "GET",

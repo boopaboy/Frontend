@@ -111,6 +111,217 @@
 }
 
 
+
+
+/* Dark Mode Class
+Ai genererade classer */
+
+.dark-mode {
+    --background-color: var(--dark-300);
+    --content-background-color: var(--dark-400);
+    --sidebar-background-color: var(--dark-200);
+
+    --text-color: var(--white-100);
+    --text-muted-color: var(--gray-400);
+    --text-extra-muted-color: var(--gray-500);
+    --text-headline-color: var(--white);
+
+    --border-color: var(--dark-600);
+    --border-focus-color: var(--blue-dark);
+    
+    --navlink-text-color: var(--white-100);
+    --navlink-text-hover-color: var(--blue-light);
+    --navlink-text-active-color: var(--blue-light);
+    --navlink-background-color: transparent;
+    --navlink-background-hover-color: var(--dark-400);
+    --navlink-background-active-color: var(--dark-400);
+    
+    --table-header-background-color: var(--dark-400);
+    --table-header-text-color: var(--white-100);
+    --table-tbody-tr-background-hover-color: var(--dark-500);
+    
+    --modal-screen-background-color: rgba(0, 0, 0, 0.8);
+    --modal-background-color: var(--dark-300);
+    
+    --form-label-color: var(--white-100);
+    --form-input-text-color: var(--white-100);
+    --form-input-placeholder-color: var(--gray-700);
+    --form-input-background-color: var(--dark-500);
+    --form-input-border-color: var(--dark-600);
+    
+    /* Profile dropdown overrides for dark mode */
+    .profile-dropdown {
+        background-color: var(--dark-300);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    
+    .profile-dropdown::before {
+        background-color: var(--dark-300);
+    }
+    
+    .profile-dropdown li {
+        border-bottom: 1px solid var(--dark-500);
+    }
+    
+    .profile-dropdown a {
+        color: var(--white-100);
+    }
+    
+    .profile-dropdown a:hover {
+        background-color: var(--dark-400);
+        color: var(--blue-light);
+    }
+    
+    /* Project filters for dark mode */
+    .projects-filter-bar {
+        border-bottom: 1px solid var(--dark-500);
+    }
+    
+    .filter-tab {
+        color: var(--gray-400);
+    }
+    
+    .sort-select {
+        border: 1px solid var(--dark-500);
+        background-color: var(--dark-400);
+        color: var(--white-100);
+    }
+    
+    .sort-select:hover {
+        border-color: var(--dark-600);
+    }
+    
+    .sort-select:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 2px rgba(45, 153, 255, 0.2);
+    }
+}
+
+/* Add this to enable system preference detection for dark mode */
+@media (prefers-color-scheme: dark) {
+    body:not(.light-mode) {
+        /* Apply the same variables as .dark-mode */
+        --background-color: var(--dark-300);
+        --content-background-color: var(--dark-400);
+        --sidebar-background-color: var(--dark-200);
+        --text-color: var(--white-100);
+        --text-muted-color: var(--gray-400);
+        --text-extra-muted-color: var(--gray-500);
+        --text-headline-color: var(--white);
+        --border-color: var(--dark-600);
+        --border-focus-color: var(--blue-dark);
+        --navlink-text-color: var(--white-100);
+        --navlink-text-hover-color: var(--blue-light);
+        --navlink-text-active-color: var(--blue-light);
+        --navlink-background-hover-color: var(--dark-400);
+        --navlink-background-active-color: var(--dark-400);
+        --table-header-background-color: var(--dark-400);
+        --table-header-text-color: var(--white-100);
+        --table-tbody-tr-background-hover-color: var(--dark-500);
+        --modal-screen-background-color: rgba(0, 0, 0, 0.8);
+        --modal-background-color: var(--dark-300);
+        --form-label-color: var(--white-100);
+        --form-input-text-color: var(--white-100);
+        --form-input-placeholder-color: var(--gray-700);
+        --form-input-background-color: var(--dark-500);
+        --form-input-border-color: var(--dark-600);
+    }
+    
+    body:not(.light-mode) .profile-dropdown {
+        background-color: var(--dark-300);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    
+    body:not(.light-mode) .profile-dropdown::before {
+        background-color: var(--dark-300);
+    }
+    
+    body:not(.light-mode) .profile-dropdown li {
+        border-bottom: 1px solid var(--dark-500);
+    }
+    
+    body:not(.light-mode) .profile-dropdown a {
+        color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .profile-dropdown a:hover {
+        background-color: var(--dark-400);
+        color: var(--blue-light);
+    }
+    
+    body:not(.light-mode) .projects-filter-bar {
+        border-bottom: 1px solid var(--dark-500);
+    }
+    
+    body:not(.light-mode) .filter-tab {
+        color: var(--gray-400);
+    }
+    
+    body:not(.light-mode) .sort-select {
+        border: 1px solid var(--dark-500);
+        background-color: var(--dark-400);
+        color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .sort-select:hover {
+        border-color: var(--dark-600);
+    }
+    
+    body:not(.light-mode) .sort-select:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 2px rgba(45, 153, 255, 0.2);
+    }
+}
+
+/* Add a theme toggle button style */
+.theme-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    margin-right: 1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: var(--blue-light-opacity);
+}
+
+.theme-toggle::before {
+    font-family: var(--font-fa-pro);
+    content: '\f185'; /* sun icon for when in dark mode */
+}
+
+.dark-mode .theme-toggle::before {
+    content: '\f186'; /* moon icon for when in light mode */
+}
+
+/* Optional: Animation for the theme transition */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.wrapper-portal > aside,
+.wrapper-portal > .sidebar,
+.wrapper-portal > main,
+.wrapper-portal > .main,
+.modal > .modal-content,
+form input,
+form select,
+form textarea,
+.profile-dropdown,
+.nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 html, body {
     margin: 0;
     font-size: 16px;
@@ -802,5 +1013,516 @@ section > .content {
     }
   }
 
+  /* ==== FORM.CSS DARK MODE ADDITIONS ==== */
+.dark-mode .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .dark-mode .modal-container {
+    background-color: var(--dark-400);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark-mode .modal-header h2 {
+    color: var(--white);
+  }
+  
+  .dark-mode .close-button {
+    color: var(--gray-400);
+  }
+  
+  .dark-mode .image-placeholder {
+    border-color: var(--dark-600);
+  }
+  
+  .dark-mode .form-group label {
+    color: var(--white-100);
+  }
+  
+  .dark-mode .form-group input,
+  .dark-mode .form-group select,
+  .dark-mode .form-group textarea {
+    background-color: var(--dark-500);
+    border-color: var(--dark-600);
+    color: var(--white-100);
+  }
+  
+  .dark-mode .form-group input::placeholder,
+  .dark-mode .form-group select::placeholder,
+  .dark-mode .form-group textarea::placeholder {
+    color: var(--gray-700);
+  }
+  
+  .dark-mode .select-icon {
+    color: var(--gray-400);
+  }
+  
+  .dark-mode .calendar-button,
+  .dark-mode .currency-symbol {
+    color: var(--gray-400);
+  }
+  
+  /* ==== MEMBER CARD DARK MODE ==== */
+  .dark-mode .member-card {
+    background-color: var(--dark-400);
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.35);
+  }
+  
+  .dark-mode .member-name {
+    color: var(--white);
+  }
+  
+  .dark-mode .member-title {
+    background-color: var(--dark-500);
+    color: var(--white-100);
+  }
+  
+  .dark-mode .member-email {
+    color: var(--gray-400);
+  }
+  
+  .dark-mode .member-options-container {
+    background-color: var(--dark-300);
+    border-color: var(--dark-600);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark-mode .member-options-item {
+    color: var(--white-100);
+  }
+  
+  .dark-mode .member-options-item:hover {
+    background-color: var(--dark-400);
+    color: var(--blue-light);
+  }
+  
+  /* ==== PROJECT CARD DARK MODE ==== */
+  .dark-mode .project-card {
+    background-color: var(--dark-400);
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.35);
+  }
+  
+  .dark-mode .project-title {
+    color: var(--white);
+  }
+  
+  .dark-mode .project-client {
+    color: var(--gray-400);
+  }
+  
+  .dark-mode .project-description {
+    color: var(--white-100);
+  }
+  
+  .dark-mode .project-options-container {
+    background-color: var(--dark-300);
+    border-color: var(--dark-600);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark-mode .project-options-item {
+    color: var(--white-100);
+  }
+  
+  .dark-mode .project-options-item:hover {
+    background-color: var(--dark-400);
+    color: var(--blue-light);
+  }
+  
+  /* ==== SIGNUP DARK MODE ==== */
+  .dark-mode .signup-container {
+    background-color: var(--dark-300);
+  }
+  
+  .dark-mode .signup-card {
+    background-color: var(--dark-400);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark-mode .signup-header h1 {
+    color: var(--white);
+  }
+  
+  .dark-mode .signup-form-group label {
+    color: var(--white-100);
+  }
+  
+  .dark-mode .signup-form-group input {
+    border-color: var(--dark-600);
+    background-color: var(--dark-500);
+    color: var(--white-100);
+  }
+  
+  .dark-mode .signup-form-group input:focus {
+    border-color: var(--blue-dark);
+  }
+  
+  .dark-mode .signup-form-group input::placeholder {
+    color: var(--gray-700);
+  }
+  
+  .dark-mode .signup-checkbox-group label {
+    color: var(--white-100);
+  }
+  
+  .dark-mode .signup-footer {
+    color: var(--gray-400);
+  }
+  
+  /* ==== CLIENTS DARK MODE ==== */
+  .dark-mode .clients-container {
+    background-color: var(--dark-400);
+    box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.35);
+  }
+  
+  .dark-mode .clients-header {
+    background-color: var(--dark-500);
+    color: var(--white-100);
+  }
+  
+  .dark-mode .client-fullname {
+    color: var(--white);
+  }
+  
+  .dark-mode .client-email {
+    color: var(--gray-400);
+  }
+  
+  .dark-mode .client-avatar {
+    background-color: var(--dark-600);
+  }
+  
+  .dark-mode .more-options {
+    color: var(--gray-400);
+  }
+  
+  /* Dark mode status badges */
+  .dark-mode .status-active {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #7adb7e;
+  }
+  
+  .dark-mode .status-inactive {
+    background-color: rgba(158, 158, 158, 0.2);
+    color: #c5c5c5;
+  }
+  
+  .dark-mode .status-pending {
+    background-color: rgba(255, 152, 0, 0.2);
+    color: #ffb74d;
+  }
+  
+  /* ==== CLIENTS ROW DARK MODE ==== */
+  .dark-mode .clientRow:hover {
+    background-color: var(--dark-500);
+  }
+  
+  /* ==== GLOBAL ANIMATIONS DARK MODE TWEAKS ==== */
+  .dark-mode .loading-spinner .spinner {
+    border-color: var(--dark-600);
+    border-top-color: var(--blue-dark);
+  }
+  
+  /* ==== SYSTEM PREFERENCE ENHANCEMENTS ==== */
+  @media (prefers-color-scheme: dark) {
+    /* Improve existing system preference detection with our new styles */
+    
+    /* Form styles */
+    body:not(.light-mode) .modal-overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    
+    body:not(.light-mode) .modal-container {
+      background-color: var(--dark-400);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    body:not(.light-mode) .modal-header h2 {
+      color: var(--white);
+    }
+    
+    body:not(.light-mode) .close-button {
+      color: var(--gray-400);
+    }
+    
+    body:not(.light-mode) .image-placeholder {
+      border-color: var(--dark-600);
+    }
+    
+    body:not(.light-mode) .form-group label {
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .form-group input,
+    body:not(.light-mode) .form-group select,
+    body:not(.light-mode) .form-group textarea {
+      background-color: var(--dark-500);
+      border-color: var(--dark-600);
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .form-group input::placeholder,
+    body:not(.light-mode) .form-group select::placeholder,
+    body:not(.light-mode) .form-group textarea::placeholder {
+      color: var(--gray-700);
+    }
+    
+    /* Member card styles */
+    body:not(.light-mode) .member-card {
+      background-color: var(--dark-400);
+      box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.35);
+    }
+    
+    body:not(.light-mode) .member-name {
+      color: var(--white);
+    }
+    
+    body:not(.light-mode) .member-title {
+      background-color: var(--dark-500);
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .member-email {
+      color: var(--gray-400);
+    }
+    
+    body:not(.light-mode) .member-options-container {
+      background-color: var(--dark-300);
+      border-color: var(--dark-600);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    body:not(.light-mode) .member-options-item {
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .member-options-item:hover {
+      background-color: var(--dark-400);
+      color: var(--blue-light);
+    }
+    
+    /* Project card styles */
+    body:not(.light-mode) .project-card {
+      background-color: var(--dark-400);
+      box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.35);
+    }
+    
+    body:not(.light-mode) .project-title {
+      color: var(--white);
+    }
+    
+    body:not(.light-mode) .project-client {
+      color: var(--gray-400);
+    }
+    
+    body:not(.light-mode) .project-description {
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .project-options-container {
+      background-color: var(--dark-300);
+      border-color: var(--dark-600);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    body:not(.light-mode) .project-options-item {
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .project-options-item:hover {
+      background-color: var(--dark-400);
+      color: var(--blue-light);
+    }
+    
+    /* Signup styles */
+    body:not(.light-mode) .signup-container {
+      background-color: var(--dark-300);
+    }
+    
+    body:not(.light-mode) .signup-card {
+      background-color: var(--dark-400);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    body:not(.light-mode) .signup-header h1 {
+      color: var(--white);
+    }
+    
+    body:not(.light-mode) .signup-form-group label {
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .signup-form-group input {
+      border-color: var(--dark-600);
+      background-color: var(--dark-500);
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .signup-form-group input:focus {
+      border-color: var(--blue-dark);
+    }
+    
+    body:not(.light-mode) .signup-checkbox-group label {
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .signup-footer {
+      color: var(--gray-400);
+    }
+    
+    /* Clients styles */
+    body:not(.light-mode) .clients-container {
+      background-color: var(--dark-400);
+      box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.35);
+    }
+    
+    body:not(.light-mode) .clients-header {
+      background-color: var(--dark-500);
+      color: var(--white-100);
+    }
+    
+    body:not(.light-mode) .client-fullname {
+      color: var(--white);
+    }
+    
+    body:not(.light-mode) .client-email {
+      color: var(--gray-400);
+    }
+    
+    body:not(.light-mode) .client-avatar {
+      background-color: var(--dark-600);
+    }
+    
+    body:not(.light-mode) .more-options {
+      color: var(--gray-400);
+    }
+    
+    /* Status badges */
+    body:not(.light-mode) .status-active {
+      background-color: rgba(76, 175, 80, 0.2);
+      color: #7adb7e;
+    }
+    
+    body:not(.light-mode) .status-inactive {
+      background-color: rgba(158, 158, 158, 0.2);
+      color: #c5c5c5;
+    }
+    
+    body:not(.light-mode) .status-pending {
+      background-color: rgba(255, 152, 0, 0.2);
+      color: #ffb74d;
+    }
+    
+    /* Client rows */
+    body:not(.light-mode) .clientRow:hover {
+      background-color: var(--dark-500);
+    }
+  }
+  
+  /* ==== THEME TOGGLE IMPROVEMENTS ==== */
+  .theme-toggle {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .theme-toggle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue-light-opacity);
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .theme-toggle:active::after {
+    transform: scale(1);
+  }
+  
+  /* Add subtle animations for theme transition */
+  .dark-mode .wrapper-portal > aside,
+  .dark-mode .wrapper-portal > .sidebar,
+  .dark-mode .wrapper-portal > main,
+  .dark-mode .wrapper-portal > .main,
+  .dark-mode .modal > .modal-content,
+  .dark-mode form input,
+  .dark-mode form select,
+  .dark-mode form textarea,
+  .dark-mode .modal-container,
+  .dark-mode .member-card,
+  .dark-mode .project-card,
+  .dark-mode .clients-container {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* ToggleSwitch.css */
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 88px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 

@@ -27,7 +27,6 @@ const SignUp = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call
     setTimeout(() => {
       SignUp(formData);
       console.log('Form submitted:', formData);
@@ -116,7 +115,8 @@ const SignUp = () => {
               <input 
                 type="checkbox" 
                 id="acceptTerms"
-                name="acceptTerms"
+                name="isAdmin"
+                onChange={handleChange}
                
               />
               <label htmlFor="acceptTerms">

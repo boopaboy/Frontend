@@ -2,6 +2,7 @@ import React from 'react'
 import logo from './../../assets/images/icon-logo.svg'
 import {useState} from 'react'
 import { useAuth } from '../../contexts/AuthContext'
+import ToggleSwitch from '../components/ToggleSwitch'
 
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -14,10 +15,13 @@ const Header = () => {
             {isClicked && (
             <div className="profile-dropdown">
                 <ul>
-                    <li><a href="#">Profile</a></li>
+                    <li><ToggleSwitch>
+                        <span>Dark Mode</span>
+                    </ToggleSwitch></li>
                     <li onClick={() => auth.signOut()}><a>
                       Log Out </a>
                    </li>
+                   
                 </ul>
             </div>
             )}
